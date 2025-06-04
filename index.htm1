@@ -1,72 +1,38 @@
 <!DOCTYPE html>
-<html lang="zh-Hant">
+<html lang="zh-TW">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>機器人打招呼（輸入名字）</title>
+  <meta charset="UTF-8">
+  <title>Robot Greeting</title>
   <style>
     body {
       background-color: #121212;
-      color: #f4ede3;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      text-align: center;
-      padding: 2rem;
+      color: #00ffcc;
+      font-family: 'Courier New', monospace;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
     }
-    input, button {
-      font-size: 1.2rem;
-      padding: 0.6rem 1rem;
-      border-radius: 8px;
-      margin-top: 1rem;
+
+    .robot {
+      font-size: 80px;
+      animation: blink 1s infinite;
     }
-    input {
-      width: 250px;
-      border: 1px solid #444;
-      background: #2c2c2c;
-      color: #fff;
+
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.2; }
     }
-    button {
-      background: linear-gradient(to right, #d97706, #fca311);
-      color: white;
-      border: none;
-      cursor: pointer;
-    }
-    #greeting {
-      margin-top: 2rem;
-      font-size: 1.5rem;
-      color: #fca311;
-      font-weight: bold;
+
+    .message {
+      margin-top: 20px;
+      font-size: 24px;
     }
   </style>
 </head>
 <body>
-  <h1>我是 don 的機器人 🤖</h1>
-  <p>輸入你的名字，看看我會怎麼跟你打招呼吧！</p>
-  <input type="text" id="nameInput" placeholder="請輸入你的名字" />
-  <br />
-  <button onclick="sayHi()">打招呼</button>
-  <div id="greeting"></div>
-
-  <script>
-    function sayHi() {
-      const name = document.getElementById("nameInput").value.trim();
-      const greetingDiv = document.getElementById("greeting");
-
-      if (!name) {
-        greetingDiv.textContent = "請先輸入你的名字喔！😊";
-        return;
-      }
-
-      const greetings = [
-        `嗨，${name}！很高興見到你！🤖`,
-        `你好，${name}！我是你的機器人朋友！👋`,
-        `歡迎光臨，${name}！讓我們一起探索吧！✨`,
-        `你好啊，${name}！有什麼我可以幫忙的嗎？😊`,
-        機器人打招呼囉，${name}！祝你今天愉快！🚀
-      ];
-
-      const randomGreeting = greetings[Math.floor(Math.random() * greetings.length)];
-      greetingDiv.textContent = randomGreeting;
-    }
-  </script>
+  <div class="robot">🤖</div>
+  <div class="message">您好，我是您的機器人助手！</div>
 </body>
 </html>
